@@ -8,9 +8,13 @@ RUN go mod download
 
 COPY ipfsadd.go .
 
-RUN GOOS=linux go build -o ipfsadd
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o ipfsadd .
 
-FROM debian:stable-slim
+FROM alpine:latest
+
+RUN apk --no-cache add ca-certificates
+
+WORKDIR /root
 
 COPY --from=builder /app/ipfsadd .
 
