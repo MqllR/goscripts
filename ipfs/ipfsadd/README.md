@@ -1,6 +1,6 @@
 # IPFSADD
 
-Simple script to add a file or a directory recursively in a remote IPFS node
+Simple script to add a single file or a whole directory in a remote IPFS node
 
 ## Usage
 
