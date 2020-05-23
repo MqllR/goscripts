@@ -43,6 +43,11 @@ func init() {
 func main() {
 	sh := shell.NewShell(Host)
 
+	if !sh.IsUp() {
+		fmt.Fprintf(os.Stderr, "IPFS node unreachable")
+		os.Exit(1)
+	}
+
 	file, err := os.Stat(Path)
 	if os.IsNotExist(err) {
 		fmt.Fprintf(os.Stderr, "Path does not exist")
