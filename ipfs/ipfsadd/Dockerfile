@@ -18,4 +18,4 @@ WORKDIR /root
 
 COPY --from=builder /app/ipfsadd .
 
-ENTRYPOINT ["./ipfsadd"]
+ENTRYPOINT ["/root/ipfsadd"]
